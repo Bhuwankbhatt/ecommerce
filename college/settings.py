@@ -25,7 +25,7 @@ SECRET_KEY = 'ran0)h6+i2qyozg5f(p%poo_02_9@hj#^ww4l+!!%&rfg#&!@#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['local-host','127.0.0.1']
 
 
 # Application definition
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'homeblog',
     'supermarket',
     'accounts',
-    'crispy_forms'
+    'crispy_forms',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 
 ]
 
@@ -136,5 +138,10 @@ AUTHENTICATION_BACKENDS=['django.contrib.auth.backends.AllowAllUsersModelBackend
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
 LOGIN_REDIRECT_URL='homepage'
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    # ...
+]
 
 
